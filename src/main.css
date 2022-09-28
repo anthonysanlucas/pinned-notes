@@ -6,4 +6,8 @@
   .pinned-note {
     @apply min-h-[15rem] w-full resize-none rounded-md bg-slate-700 p-4 font-semibold leading-7 text-white text-opacity-90 transition-colors duration-200 hover:bg-slate-600 focus:bg-slate-600 focus:outline-none;
   }
+
+  .modal-container {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70;
+  }
 }

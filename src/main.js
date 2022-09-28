@@ -1,3 +1,5 @@
+import { printAlert } from './components/removalAlert';
+
 const notesContainer = document.getElementById('app');
 const addButton = document.getElementById('add-note');
 
@@ -29,11 +31,7 @@ function createNote(id, content) {
   });
 
   element.addEventListener('dblclick', () => {
-    const deletionWarning = confirm('Delete note?');
-
-    if (deletionWarning) {
-      deleteNote(id, element);
-    }
+    printAlert(id, element);
   });
 
   return element;
@@ -61,7 +59,7 @@ function updateNote(id, newContent) {
   setNotes(notes);
 }
 
-function deleteNote(id, element) {
+export function deleteNote(id, element) {
   const notes = getNotes().filter(note => note.id != id);
 
   setNotes(notes);
