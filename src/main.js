@@ -1,4 +1,4 @@
-import { printAlert } from './components/removalAlert';
+import { createNote } from './components/pinnedNote';
 
 const notesContainer = document.getElementById('app');
 const addButton = document.getElementById('add-note');
@@ -18,25 +18,6 @@ function setNotes(notes) {
   localStorage.setItem('pinned-notes', JSON.stringify(notes));
 }
 
-function createNote(id, content) {
-  const element = document.createElement('textarea');
-
-  element.classList.add('pinned-note');
-  element.setAttribute('spellcheck', false);
-  element.value = content;
-  element.placeholder = '📌 Write here!';
-
-  element.addEventListener('change', () => {
-    updateNote(id, element.value);
-  });
-
-  element.addEventListener('dblclick', () => {
-    printAlert(id, element);
-  });
-
-  return element;
-}
-
 function addNote() {
   const notes = getNotes();
   const noteObject = {
@@ -51,7 +32,7 @@ function addNote() {
   setNotes(notes);
 }
 
-function updateNote(id, newContent) {
+export function updateNote(id, newContent) {
   const notes = getNotes();
   const targetNote = notes.filter(note => note.id == id)[0];
 

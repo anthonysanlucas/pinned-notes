@@ -4,7 +4,11 @@
 
 @layer components {
   .pinned-note {
-    @apply min-h-[15rem] w-full resize-none rounded-md bg-slate-700 p-4 font-semibold leading-7 text-white text-opacity-90 transition-colors duration-200 hover:bg-slate-600 focus:bg-slate-600 focus:outline-none;
+    @apply rounded-md bg-slate-700 p-4 transition-colors duration-200 hover:bg-slate-600;
+  }
+
+  .pinned-note__textarea {
+    @apply min-h-[15rem] w-full resize-none bg-transparent font-semibold leading-7 text-white text-opacity-90 focus:outline-none;
   }
 
   .modal-container {
