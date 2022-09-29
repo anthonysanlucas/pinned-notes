@@ -11,6 +11,10 @@
     @apply min-h-[15rem] w-full resize-none bg-transparent font-semibold leading-7 text-white text-opacity-90 focus:outline-none;
   }
 
+  .pinned-note__actions {
+    @apply mt-3 flex items-center justify-between;
+  }
+
   .modal-container {
     @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70;
   }

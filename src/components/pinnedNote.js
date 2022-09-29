@@ -2,9 +2,10 @@ import { createCustomElement } from '../utils/utils';
 import { updateNote } from '../main';
 import { printAlert } from './removalAlert';
 
-export function createNote(id, content) {
+export function createNote(id, date, content) {
   const actions = `
-  <div class="mt-3 flex w-full items-center justify-end gap-x-4">
+  <span class="font-medium text-slate-500">${date}</span>
+  <div class="flex w-full justify-end gap-x-4">
     <button id="copy-content" class="focus:outline-none" tabindex="-1">
       <svg
         class="h-7 w-7 fill-current text-slate-500 transition-colors duration-200 hover:text-teal-500 sm:h-6 sm:w-6"
@@ -26,7 +27,13 @@ export function createNote(id, content) {
   </div>
   `;
 
-  const actionsContainer = createCustomElement('div', {}, [actions]);
+  const actionsContainer = createCustomElement(
+    'div',
+    {
+      class: 'pinned-note__actions',
+    },
+    [actions]
+  );
 
   const texArea = createCustomElement(
     'textarea',
