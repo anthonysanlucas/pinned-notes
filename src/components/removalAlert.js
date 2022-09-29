@@ -41,6 +41,7 @@ export function printAlert(id, element) {
   const modalContainer = createCustomElement(
     'div',
     {
+      id: 'modal-container',
       class: 'modal-container',
     },
     [removalAlert]
@@ -50,6 +51,7 @@ export function printAlert(id, element) {
 
   const deleteButton = document.getElementById('delete-button');
   const cancelButton = document.getElementById('cancel-button');
+  const modal = document.getElementById('modal-container');
 
   deleteButton.addEventListener('click', () => {
     deleteNote(id, element);
@@ -63,6 +65,20 @@ export function printAlert(id, element) {
   modalContainer.addEventListener('click', e => {
     if (e.target === modalContainer) return removeAlert();
   });
+
+  document.addEventListener('keydown', e => keyEvents(e.key, modal));
+
+  function keyEvents(key, node) {
+    if (key === 'Escape' && document.body.contains(node)) {
+      removeAlert();
+    }
+
+    if (key === 'Enter' && document.body.contains(node)) {
+      deleteNote(id, element);
+      removeAlert();
+    }
+    return;
+  }
 
   function removeAlert() {
     document.body.removeChild(modalContainer);
