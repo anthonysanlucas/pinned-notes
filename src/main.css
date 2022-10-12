@@ -7,12 +7,20 @@
     @apply rounded-md bg-slate-700 p-4 shadow-md shadow-slate-700/50 transition-colors duration-200 hover:bg-slate-600;
   }
 
-  .pinned-note__textarea {
-    @apply scrollbar min-h-[15rem] w-full resize-none bg-transparent pr-2 font-semibold leading-7 text-white text-opacity-90 focus:outline-none;
+  .pinned-note__title {
+    @apply h-12 text-center text-xl font-semibold;
+  }
+
+  .pinned-note__content {
+    @apply min-h-[15rem] pr-2 font-semibold leading-7;
   }
 
   .pinned-note__actions {
     @apply mt-3 flex items-center justify-between;
+  }
+
+  .textarea {
+    @apply scrollbar w-full resize-none bg-transparent text-white text-opacity-90 focus:outline-none;
   }
 
   .modal-container {

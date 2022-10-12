@@ -2,7 +2,7 @@ import { createCustomElement } from '../utils/utils';
 import { updateNote } from '../main';
 import { printAlert } from './removalAlert';
 
-export function createNote(id, date, content) {
+export function createNote(id, date, title, content) {
   const actions = `
   <span class="font-medium text-slate-500">${date}</span>
   <div class="flex w-full justify-end gap-x-4">
@@ -35,12 +35,22 @@ export function createNote(id, date, content) {
     [actions]
   );
 
-  const texArea = createCustomElement(
+  const textAreaContent = createCustomElement(
     'textarea',
     {
-      class: 'pinned-note__textarea',
+      class: 'pinned-note__content textarea',
       spellcheck: false,
-      placeholder: '📌 Write here!',
+      placeholder: 'Write here!',
+    },
+    []
+  );
+
+  const textAreaTitle = createCustomElement(
+    'textarea',
+    {
+      class: 'pinned-note__title textarea',
+      spellcheck: false,
+      placeholder: '📌 Amazing Title',
     },
     []
   );
@@ -50,14 +60,17 @@ export function createNote(id, date, content) {
     {
       class: 'pinned-note',
     },
-    [texArea, actionsContainer]
+    [textAreaTitle, textAreaContent, actionsContainer]
   );
 
-  texArea.value = content;
-  texArea.addEventListener('change', () => updateNote(id, texArea.value));
+  textAreaTitle.value = title;
+  textAreaTitle.addEventListener('change', () => updateNote(id, true, textAreaTitle.value));
+
+  textAreaContent.value = content;
+  textAreaContent.addEventListener('change', () => updateNote(id, false, textAreaContent.value));
 
   actionsContainer.querySelector('#copy-content').addEventListener('click', () => {
-    let textContent = texArea.value;
+    let textContent = textAreaContent.value;
     navigator.clipboard
       .writeText(textContent)
       .then()

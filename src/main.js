@@ -4,7 +4,7 @@ const notesContainer = document.getElementById('app');
 const addButton = document.getElementById('add-note');
 
 getNotes().forEach(note => {
-  const noteElement = createNote(note.id, note.date, note.content);
+  const noteElement = createNote(note.id, note.date, note.title, note.content);
   notesContainer.insertBefore(noteElement, addButton);
 });
 
@@ -23,21 +23,23 @@ function addNote() {
   const noteObject = {
     id: Math.floor(Math.random() * 100000),
     date: new Date().toLocaleDateString(),
+    title: '',
     content: '',
   };
 
-  const noteElement = createNote(noteObject.id, noteObject.date, noteObject.content);
+  const noteElement = createNote(noteObject.id, noteObject.date, noteObject.title, noteObject.content);
   notesContainer.insertBefore(noteElement, addButton);
 
   notes.push(noteObject);
   setNotes(notes);
 }
 
-export function updateNote(id, newContent) {
+export function updateNote(id, isTitle, newContent) {
   const notes = getNotes();
   const targetNote = notes.filter(note => note.id == id)[0];
 
-  targetNote.content = newContent;
+  isTitle ? (targetNote.title = newContent) : (targetNote.content = newContent);
+
   setNotes(notes);
 }
 
