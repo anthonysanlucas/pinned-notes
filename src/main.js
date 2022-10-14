@@ -1,4 +1,5 @@
 import { createNote } from './components/pinnedNote';
+import { initialPinnedNote } from './components/initialPinnedNote';
 
 const notesContainer = document.getElementById('app');
 const addButton = document.getElementById('add-note');
@@ -11,7 +12,7 @@ getNotes().forEach(note => {
 addButton.addEventListener('click', () => addNote());
 
 function getNotes() {
-  return JSON.parse(localStorage.getItem('pinned-notes') ?? '[]');
+  return JSON.parse(localStorage.getItem('pinned-notes') ?? initialPinnedNote);
 }
 
 function setNotes(notes) {
