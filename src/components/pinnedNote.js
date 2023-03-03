@@ -69,7 +69,13 @@ export function createNote(id, date, title, content) {
   textAreaContent.value = content;
   textAreaContent.addEventListener('change', () => updateNote(id, false, textAreaContent.value));
 
-  actionsContainer.querySelector('#copy-content').addEventListener('click', () => {
+  let copyButton = actionsContainer.querySelector('#copy-content');
+  copyButton.addEventListener('click', () => {
+    copyButton.classList.add('copied-text');
+    setTimeout(() => {
+      copyButton.classList.remove('copied-text');
+    }, 350);
+
     let textContent = textAreaContent.value;
     navigator.clipboard
       .writeText(textContent)

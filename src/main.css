@@ -26,6 +26,10 @@
   .modal-container {
     @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70;
   }
+
+  .copied-text {
+    @apply after:absolute after:rounded-sm after:bg-teal-500 after:p-2 after:text-xs after:font-bold after:text-white after:content-['Copied'];
+  }
 }
 
 @layer utilities {
