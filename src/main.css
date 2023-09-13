@@ -28,13 +28,13 @@
   }
 
   .copied-text {
-    @apply after:absolute after:rounded-sm after:bg-teal-500 after:p-2 after:text-xs after:font-bold after:text-white after:content-['Copied'];
+    @apply after:absolute after:rounded-sm after:bg-primary after:p-2 after:text-xs after:font-bold after:text-white after:content-['Copied'];
   }
 }
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
-    width: 0.313rem;
+    width: 0.4rem;
     height: 1rem;
   }
 
@@ -43,7 +43,7 @@
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #2dd4bf;
+    background-color: #0084FF;
     border-radius: 1rem;
     border: 1px solid #64748b;
   }

@@ -8,7 +8,7 @@ export function createNote(id, date, title, content) {
   <div class="flex w-full justify-end gap-x-4">
     <button id="copy-content" class="focus:outline-none" tabindex="-1">
       <svg
-        class="h-7 w-7 fill-current text-slate-500 transition-colors duration-200 hover:text-teal-500 sm:h-6 sm:w-6"
+        class="h-7 w-7 fill-current text-slate-500 transition-colors duration-200 hover:text-primary sm:h-6 sm:w-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512">
         <path
@@ -17,7 +17,7 @@ export function createNote(id, date, title, content) {
     </button>
     <button id="delete-note" class="focus:outline-none" tabindex="-1">
       <svg
-        class="h-7 w-7 fill-current text-slate-500 transition-colors duration-200 hover:text-teal-500 sm:h-6 sm:w-6"
+        class="h-7 w-7 fill-current text-slate-500 transition-colors duration-200 hover:text-primary sm:h-6 sm:w-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512">
         <path
